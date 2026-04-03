@@ -58,6 +58,44 @@ namespace ChatApp.Controllers
             return Ok(MappingService.ToDto(c, Me));
         }
 
+        [HttpGet("{id}/analytics")]
+        public async Task<IActionResult> Analytics(int id)
+        {
+            var channel = await _db.Channels.FindAsync(id);
+            if (channel == null) return NotFound();
+
+            var totalMessages = await _db.Messages.CountAsync(m => m.ChannelId == id && m.IsSent);
+            var silentMessages = await _db.Messages.CountAsync(m => m.ChannelId == id && m.IsSilent && m.IsSent);
+            var activeMembers = await _db.ChannelMembers.CountAsync(cm => cm.ChannelId == id);
+            var recentActivity = await _db.Messages
+                .Where(m => m.ChannelId == id && m.IsSent)
+                .OrderByDescending(m => m.SentAt)
+                .Select(m => m.SentAt)
+                .FirstOrDefaultAsync();
+
+            return Ok(new
+            {
+                channel.Id,
+                channel.Name,
+                channel.Description,
+                SubscriberCount = activeMembers,
+                TotalMessages = totalMessages,
+                SilentMessages = silentMessages,
+                LastMessageAt = recentActivity
+            });
+        }
+
+        [HttpGet("discover")]
+        public async Task<IActionResult> Discover([FromQuery] string? q)
+        {
+            var query = _db.Channels.Where(c => c.IsPublic);
+            if (!string.IsNullOrWhiteSpace(q))
+                query = query.Where(c => c.Name.Contains(q) || (c.Description != null && c.Description.Contains(q)));
+
+            var page = await query.OrderByDescending(c => c.CreatedAt).Take(40).ToListAsync();
+            return Ok(page.Select(c => MappingService.ToDto(c, Me)));
+        }
+
         [HttpPost("{id}/subscribe")]
         public async Task<IActionResult> Subscribe(int id)
         {

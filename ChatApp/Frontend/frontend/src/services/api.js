@@ -119,8 +119,43 @@ export const groupsApi = {
 // ── Channels ──────────────────────────────────────────────────────────────────
 export const channelsApi = {
   search: (q) => req(`/channels?q=${encodeURIComponent(q || '')}`),
+  discover: (q) => req(`/channels/discover?q=${encodeURIComponent(q || '')}`),
+  analytics: (id) => req(`/channels/${id}/analytics`),
   create: (data) => req('/channels', { method: 'POST', body: JSON.stringify(data) }),
   get: (id) => req(`/channels/${id}`),
   subscribe: (id) => req(`/channels/${id}/subscribe`, { method: 'POST' }),
   unsubscribe: (id) => req(`/channels/${id}/subscribe`, { method: 'DELETE' }),
+};
+
+// ── Broadcasts ───────────────────────────────────────────────────────────────
+export const broadcastApi = {
+  list: () => req('/broadcast'),
+  create: (data) => req('/broadcast', { method: 'POST', body: JSON.stringify(data) }),
+  addMembers: (id, memberIds) => req(`/broadcast/${id}/members`, { method: 'POST', body: JSON.stringify(memberIds) }),
+  send: (id, content) => req(`/broadcast/${id}/send`, { method: 'POST', body: JSON.stringify({ content }) }),
+};
+
+// ── Bots / Open API ───────────────────────────────────────────────────────────
+export const botsApi = {
+  list: () => req('/bots'),
+  create: (data) => req('/bots', { method: 'POST', body: JSON.stringify(data) }),
+  toggle: (id) => req(`/bots/${id}/toggle`, { method: 'POST' }),
+  openSend: (apiKey, data) => fetch(`${BASE}/api/openapi/messages`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey },
+    body: JSON.stringify(data),
+  }).then(async (res) => { if (!res.ok) throw new Error('OpenAPI send failed'); return res.json(); }),
+};
+
+// ── Admin ────────────────────────────────────────────────────────────────────
+export const adminApi = {
+  stats: () => req('/admin/stats'),
+  banUser: (id) => req(`/admin/users/${id}/ban`, { method: 'POST' }),
+  unbanUser: (id) => req(`/admin/users/${id}/unban`, { method: 'POST' }),
+  deleteMessage: (id) => req(`/admin/messages/${id}`, { method: 'DELETE' }),
+};
+
+// ── GraphQL ───────────────────────────────────────────────────────────────────
+export const graphqlApi = {
+  query: (payload) => req('/graphql', { method: 'POST', body: JSON.stringify(payload) }),
 };

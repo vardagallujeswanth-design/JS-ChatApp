@@ -52,6 +52,21 @@ namespace ChatApp.Controllers
             return Ok(new { message = "Public key updated." });
         }
 
+        [HttpPost("me/verify-device")]
+        public async Task<IActionResult> VerifyDevice([FromBody] string signedChallenge)
+        {
+            var user = await _db.Users.FindAsync(Me);
+            if (user == null) return NotFound();
+            if (string.IsNullOrWhiteSpace(user.PublicKey))
+                return BadRequest(new { message = "No public key registered for this account." });
+
+            // Simple placeholder: in production verify signature with RSA/ECDSA.
+            if (signedChallenge != "verified")
+                return Unauthorized(new { message = "Device verification failed." });
+
+            return Ok(new { message = "Device verified." });
+        }
+
         [HttpPost("me/avatar")]
         public async Task<IActionResult> UploadAvatar(IFormFile file)
         {

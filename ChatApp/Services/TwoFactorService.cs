@@ -23,6 +23,13 @@ namespace ChatApp.Services
             return $"otpauth://totp/{encodedIssuer}:{encodedAccount}?secret={secret}&issuer={encodedIssuer}&digits={CodeDigits}&period={TimeStepSeconds}";
         }
 
+        public static string GenerateTotpCode(string secret)
+        {
+            var key = Base32Decode(secret);
+            var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds() / TimeStepSeconds;
+            return GenerateTotp(key, timestamp);
+        }
+
         public static bool ValidateTotpCode(string secret, string code)
         {
             if (string.IsNullOrWhiteSpace(secret) || string.IsNullOrWhiteSpace(code)) return false;

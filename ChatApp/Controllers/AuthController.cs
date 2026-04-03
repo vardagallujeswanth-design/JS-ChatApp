@@ -64,6 +64,9 @@ namespace ChatApp.Controllers
             if (user == null || !BCrypt.Net.BCrypt.Verify(req.Password, user.PasswordHash))
                 return Unauthorized(new { message = "Invalid phone number or password." });
 
+            if (user.IsBanned)
+                return Forbid("User is banned.");
+
             if (user.IsTwoFactorEnabled)
             {
                 return Ok(new { twoFactorRequired = true, message = "Two-factor authentication code required." });
@@ -87,6 +90,9 @@ namespace ChatApp.Controllers
             var user = await _db.Users.FirstOrDefaultAsync(u => u.PhoneNumber == normalizedPhone);
             if (user == null || !BCrypt.Net.BCrypt.Verify(req.Password, user.PasswordHash))
                 return Unauthorized(new { message = "Invalid phone number, password, or code." });
+
+            if (user.IsBanned)
+                return Forbid("User is banned.");
 
             if (!user.IsTwoFactorEnabled || string.IsNullOrWhiteSpace(user.TwoFactorSecret))
                 return BadRequest(new { message = "Two-factor authentication is not enabled for this account." });

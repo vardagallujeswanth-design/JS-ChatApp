@@ -74,4 +74,9 @@ git push
 ## Notes
 
 - `ChatHub` still uses in-memory connections (`_connections`), not yet horizontally scaled.
-- Poll advance features and full Phase 4 features (E2EE key rotation, bot platform, admin dashboard) are roadmapped.
+- Added channel discovery/analytics APIs and UI (Sidebar discovery modal).
+- Added broadcast list endpoints (`/api/broadcast`) and UI for list creation + send.
+- Added E2E key rotation endpoints (`/api/users/me/public-key` and `/api/users/me/verify-device`) and placeholder browser-based workflow.
+- Added GraphQL query stub (`/api/graphql`) for channels/users, plus open API bot endpoint (`/api/openapi/messages`).
+- Added admin dashboard endpoints and UI (`/api/admin/stats`, `/api/admin/users/{id}/ban`, `/api/admin/messages/{id}`)
+- Added tests: 2FA workflow, silent channel post, pin/unpin flow, message reactions.

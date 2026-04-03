@@ -27,6 +27,7 @@ namespace ChatApp.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime LastSeen { get; set; } = DateTime.UtcNow;
         public bool IsOnline { get; set; } = false;
+        public bool IsBanned { get; set; } = false;
 
         // E2E encryption — public key stored on server, private key stays in browser
         public string? PublicKey { get; set; }
@@ -281,6 +282,30 @@ namespace ChatApp.Models
 
         [ForeignKey("ChannelId")]
         public Channel Channel { get; set; } = null!;
+        [ForeignKey("UserId")]
+        public User User { get; set; } = null!;
+    }
+
+    public class BroadcastList
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+        public int CreatedById { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        [ForeignKey("CreatedById")]
+        public User CreatedBy { get; set; } = null!;
+        public ICollection<BroadcastListMember> Members { get; set; } = new List<BroadcastListMember>();
+    }
+
+    public class BroadcastListMember
+    {
+        public int Id { get; set; }
+        public int BroadcastListId { get; set; }
+        public int UserId { get; set; }
+
+        [ForeignKey("BroadcastListId")]
+        public BroadcastList BroadcastList { get; set; } = null!;
         [ForeignKey("UserId")]
         public User User { get; set; } = null!;
     }

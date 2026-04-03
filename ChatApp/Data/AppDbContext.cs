@@ -22,6 +22,8 @@ namespace ChatApp.Data
         public DbSet<GroupMember> GroupMembers => Set<GroupMember>();
         public DbSet<Channel> Channels => Set<Channel>();
         public DbSet<ChannelMember> ChannelMembers => Set<ChannelMember>();
+        public DbSet<BroadcastList> BroadcastLists => Set<BroadcastList>();
+        public DbSet<BroadcastListMember> BroadcastListMembers => Set<BroadcastListMember>();
         public DbSet<BotApp> BotApps => Set<BotApp>();
 
         protected override void OnModelCreating(ModelBuilder m)
@@ -37,6 +39,8 @@ namespace ChatApp.Data
             m.Entity<StarredMessage>().HasIndex(s => new { s.MessageId, s.UserId }).IsUnique();
             m.Entity<PollVote>().HasIndex(v => new { v.PollOptionId, v.UserId }).IsUnique();
             m.Entity<BotApp>().HasIndex(b => b.ApiKey).IsUnique();
+            m.Entity<BroadcastList>().HasIndex(b => new { b.CreatedById, b.Name }).IsUnique();
+            m.Entity<BroadcastListMember>().HasIndex(bm => new { bm.BroadcastListId, bm.UserId }).IsUnique();
 
             // Message relationships — restrict delete to avoid cycles
             m.Entity<Message>()

@@ -3,7 +3,7 @@ import Avatar from './Avatar.jsx';
 import NewGroupModal from './NewGroupModal.jsx';
 import { useTheme } from '../contexts/ThemeContext.jsx';
 import { useAuth } from '../contexts/AuthContext.jsx';
-import { usersApi } from '../services/api.js';
+import { usersApi, channelsApi, broadcastApi, adminApi } from '../services/api.js';
 import { formatConvTime } from '../time.js';
 
 const ICONS = {
@@ -23,8 +23,15 @@ export default function Sidebar({ conversations, selectedChat, setSelectedChat, 
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searching, setSearching] = useState(false);
+  const [discoveredChannels, setDiscoveredChannels] = useState([]);
+  const [broadcastName, setBroadcastName] = useState('');
+  const [broadcastMembers, setBroadcastMembers] = useState('');
+  const [adminStats, setAdminStats] = useState(null);
   const [showNewGroup, setShowNewGroup] = useState(false);
   const [showNewChannel, setShowNewChannel] = useState(false);
+  const [showBroadcast, setShowBroadcast] = useState(false);
+  const [showDiscovery, setShowDiscovery] = useState(false);
+  const [showAdmin, setShowAdmin] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [filter, setFilter] = useState('all'); // all | direct | groups | channels
@@ -53,6 +60,23 @@ export default function Sidebar({ conversations, selectedChat, setSelectedChat, 
       finally { setSearching(false); }
     }, 350);
   }, []);
+
+  const loadDiscovery = async (q = '') => {
+    try {
+      const channels = await channelsApi.discover(q);
+      setDiscoveredChannels(channels);
+    } catch (e) {
+      console.error('Discovery failed:', e);
+    }
+  };
+
+  const loadAdminStats = async () => {
+    try {
+      setAdminStats(await adminApi.stats());
+    } catch (e) {
+      console.error('Admin stats failed:', e);
+    }
+  };
 
   const startDirect = (u) => {
     setSelectedChat({ type: 'direct', id: u.id, name: u.displayName || u.username, avatarUrl: u.avatarUrl });
@@ -85,6 +109,9 @@ export default function Sidebar({ conversations, selectedChat, setSelectedChat, 
           <button className="icon-btn" onClick={() => setShowNewGroup(true)} title="New group">{ICONS.newGroup}</button>
           <button className="icon-btn" onClick={() => setShowNewChannel(true)} title="New channel">{ICONS.channel}</button>
           <button className="icon-btn" onClick={toggleTheme} title="Toggle theme">{theme === 'dark' ? ICONS.sun : ICONS.moon}</button>
+          <button className="icon-btn" onClick={() => setShowDiscovery(true)} title="Discover channels">🔍</button>
+          <button className="icon-btn" onClick={() => setShowBroadcast(true)} title="Broadcast list">📢</button>
+          <button className="icon-btn" onClick={() => setShowAdmin(true)} title="Admin dashboard">🛡️</button>
           <button className="icon-btn" onClick={() => setShowMenu((v) => !v)} title="More">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="5" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="19" r="1" fill="currentColor"/>
@@ -199,6 +226,87 @@ export default function Sidebar({ conversations, selectedChat, setSelectedChat, 
               </div>
             );
           })}
+        </div>
+      )}
+
+      {showDiscovery && (
+        <div className="modal-overlay" onClick={() => setShowDiscovery(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Channel Discovery</h3>
+              <button className="icon-btn" onClick={() => setShowDiscovery(false)}>✕</button>
+            </div>
+            <div className="modal-body">
+              <input
+                className="field-input"
+                placeholder="Search public channels..."
+                onChange={(e) => loadDiscovery(e.target.value)}
+              />
+              <ul className="list">
+                {discoveredChannels.map((c) => (
+                  <li key={c.id} className="list-item" onClick={() => { setSelectedChat({ type: 'channel', id: c.id, name: c.name, avatarUrl: c.avatarUrl }); setShowDiscovery(false); }}>
+                    <strong>{c.name}</strong> <span>({c.subscriberCount || 0})</span>
+                    <p>{c.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showBroadcast && (
+        <div className="modal-overlay" onClick={() => setShowBroadcast(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Broadcast List</h3>
+              <button className="icon-btn" onClick={() => setShowBroadcast(false)}>✕</button>
+            </div>
+            <div className="modal-body">
+              <div className="field">
+                <label className="field-label">List name</label>
+                <input className="field-input" value={broadcastName} onChange={(e) => setBroadcastName(e.target.value)} />
+              </div>
+              <div className="field" style={{ marginTop: 10 }}>
+                <label className="field-label">Recipient IDs (comma separated)</label>
+                <input className="field-input" value={broadcastMembers} onChange={(e) => setBroadcastMembers(e.target.value)} />
+              </div>
+              <button className="auth-btn" onClick={async () => {
+                try {
+                  const ids = broadcastMembers.split(',').map((x) => parseInt(x.trim(), 10)).filter(Boolean);
+                  await broadcastApi.create({ name: broadcastName, memberIds: ids });
+                  setBroadcastName('');
+                  setBroadcastMembers('');
+                  alert('Broadcast list created.');
+                } catch (e) {
+                  alert(e.message);
+                }
+              }}>Create list</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showAdmin && (
+        <div className="modal-overlay" onClick={() => setShowAdmin(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Admin Dashboard</h3>
+              <button className="icon-btn" onClick={() => setShowAdmin(false)}>✕</button>
+            </div>
+            <div className="modal-body">
+              <button className="auth-btn" onClick={async () => { await loadAdminStats(); }}>Refresh stats</button>
+              {adminStats && (
+                <ul>
+                  <li>Users: {adminStats.userCount}</li>
+                  <li>Banned: {adminStats.bannedCount}</li>
+                  <li>Channels: {adminStats.channelCount}</li>
+                  <li>Messages: {adminStats.messageCount}</li>
+                  <li>Online: {adminStats.activeUsers}</li>
+                </ul>
+              )}
+            </div>
+          </div>
         </div>
       )}
 
