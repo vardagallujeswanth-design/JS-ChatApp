@@ -1,0 +1,265 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Hp\\source\\repos\\ChatApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\dtos\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\dtos\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\models\\messageread.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\models\\messageread.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\models\\groupmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\models\\groupmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\chatapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\chatapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|c:\\users\\hp\\source\\repos\\chatapp\\chatapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}|ChatApp\\ChatApp.csproj|solutionrelative:chatapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 15,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GroupController.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Controllers\\GroupController.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Controllers\\GroupController.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Controllers\\GroupController.cs",
+              "RelativeToolTip": "ChatApp\\Controllers\\GroupController.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAA6wIEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:45:11.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MessagesController.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Controllers\\MessagesController.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Controllers\\MessagesController.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Controllers\\MessagesController.cs",
+              "RelativeToolTip": "ChatApp\\Controllers\\MessagesController.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAqwHsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:44:28.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Controllers\\UserController.cs",
+              "RelativeToolTip": "ChatApp\\Controllers\\UserController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAADwv5cAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:43:41.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ChatApp\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:43:12.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "ChatApp\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:42:54.056Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "ChatApp\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:41:44.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Auth.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\DTOs\\Auth.cs",
+              "RelativeDocumentMoniker": "ChatApp\\DTOs\\Auth.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\DTOs\\Auth.cs",
+              "RelativeToolTip": "ChatApp\\DTOs\\Auth.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:38:26.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MessageRead.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Models\\MessageRead.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Models\\MessageRead.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Models\\MessageRead.cs",
+              "RelativeToolTip": "ChatApp\\Models\\MessageRead.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:35:23.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Group.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Models\\Group.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Models\\Group.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Models\\Group.cs",
+              "RelativeToolTip": "ChatApp\\Models\\Group.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:34:49.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GroupMember.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Models\\GroupMember.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Models\\GroupMember.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Models\\GroupMember.cs",
+              "RelativeToolTip": "ChatApp\\Models\\GroupMember.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:34:07.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Message.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Models\\Message.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Models\\Message.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Models\\Message.cs",
+              "RelativeToolTip": "ChatApp\\Models\\Message.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:33:08.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Models\\User.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Models\\User.cs",
+              "RelativeToolTip": "ChatApp\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:32:18.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ChatApp.csproj",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\ChatApp.csproj",
+              "RelativeDocumentMoniker": "ChatApp\\ChatApp.csproj",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\ChatApp.csproj",
+              "RelativeToolTip": "ChatApp\\ChatApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-24T10:29:22.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\appsettings.json",
+              "RelativeDocumentMoniker": "ChatApp\\appsettings.json",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\appsettings.json",
+              "RelativeToolTip": "ChatApp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-24T10:28:54.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Program.cs",
+              "RelativeDocumentMoniker": "ChatApp\\Program.cs",
+              "ToolTip": "C:\\Users\\Hp\\source\\repos\\ChatApp\\ChatApp\\Program.cs",
+              "RelativeToolTip": "ChatApp\\Program.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAqwFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T10:28:14.162Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
