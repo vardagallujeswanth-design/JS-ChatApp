@@ -168,3 +168,4 @@ C:\Users\Hp\source\repos\ChatApp\ChatApp\obj\Debug\net8.0\refint\ChatApp.dll
 C:\Users\Hp\source\repos\ChatApp\ChatApp\obj\Debug\net8.0\ChatApp.pdb
 C:\Users\Hp\source\repos\ChatApp\ChatApp\obj\Debug\net8.0\ChatApp.genruntimeconfig.cache
 C:\Users\Hp\source\repos\ChatApp\ChatApp\obj\Debug\net8.0\ref\ChatApp.dll
+C:\Users\Hp\source\repos\ChatApp\ChatApp\obj\Debug\net8.0\ChatApp.sourcelink.json

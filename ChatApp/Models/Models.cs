@@ -153,6 +153,46 @@ namespace ChatApp.Models
         General
     }
 
+    public enum CallType
+    {
+        Voice,
+        Video
+    }
+
+    public enum CallDirection
+    {
+        Incoming,
+        Outgoing,
+        Missed
+    }
+
+    public enum CallState
+    {
+        Ringing,
+        Connected,
+        Ended
+    }
+
+    public class CallLog
+    {
+        public int Id { get; set; }
+        public CallType Type { get; set; }
+        public CallDirection Direction { get; set; }
+        public CallState State { get; set; } = CallState.Ringing;
+        public int InitiatorId { get; set; }
+        public int PeerId { get; set; }
+        public DateTime StartedAt { get; set; } = DateTime.UtcNow;
+        public DateTime? EndedAt { get; set; }
+        public int DurationSeconds { get; set; }
+        public bool LowBandwidthMode { get; set; }
+
+        [ForeignKey("InitiatorId")]
+        public User Initiator { get; set; } = null!;
+
+        [ForeignKey("PeerId")]
+        public User Peer { get; set; } = null!;
+    }
+
     public class PinnedMessage
     {
         public int Id { get; set; }

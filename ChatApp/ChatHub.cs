@@ -167,6 +167,28 @@ namespace ChatApp.Hubs
             await Clients.Group(ChannelRoom(channelId)).SendAsync("ReceiveMessage", MappingService.ToDto(msg, senderId));
         }
 
+        // ── Voice/Video call signaling ──────────────────────────────────────────
+
+        public async Task CallOffer(int targetUserId, object offer)
+        {
+            await SendToUser(targetUserId, "CallOffer", new { from = Me, offer });
+        }
+
+        public async Task CallAnswer(int targetUserId, object answer)
+        {
+            await SendToUser(targetUserId, "CallAnswer", new { from = Me, answer });
+        }
+
+        public async Task IceCandidate(int targetUserId, object candidate)
+        {
+            await SendToUser(targetUserId, "IceCandidate", new { from = Me, candidate });
+        }
+
+        public async Task CallEnded(int targetUserId)
+        {
+            await SendToUser(targetUserId, "CallEnded", new { from = Me });
+        }
+
         // ── Typing indicators ─────────────────────────────────────────────────
 
         public async Task Typing(int chatId, string chatType)

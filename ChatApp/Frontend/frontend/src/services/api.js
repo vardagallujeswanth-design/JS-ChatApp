@@ -159,3 +159,4 @@ export const adminApi = {
 export const graphqlApi = {
   query: (payload) => req('/graphql', { method: 'POST', body: JSON.stringify(payload) }),
 };
+\n// -- Calls (voice/video) -----------------------------------------------------\nexport const callsApi = {\n  history: (page = 1, pageSize = 50) => req(/calls/history?page=&pageSize=),\n  start: (peerId, type, lowBandwidthMode = false) => req('/calls/start', { method: 'POST', body: JSON.stringify({ peerId, type, lowBandwidthMode }) }),\n  end: (callId, durationSeconds) => req(/calls/end/, { method: 'POST', body: JSON.stringify({ durationSeconds }) }),\n  missed: (callId) => req(/calls/missed/, { method: 'POST', body: null }),\n};

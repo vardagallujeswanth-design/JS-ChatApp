@@ -3,7 +3,8 @@ import Avatar from './Avatar.jsx';
 import NewGroupModal from './NewGroupModal.jsx';
 import { useTheme } from '../contexts/ThemeContext.jsx';
 import { useAuth } from '../contexts/AuthContext.jsx';
-import { usersApi, channelsApi, broadcastApi, adminApi } from '../services/api.js';
+import { usersApi, channelsApi, broadcastApi, adminApi, callsApi } from '../services/api.js';
+import CallPage from './CallPage.jsx';
 import { formatConvTime } from '../time.js';
 
 const ICONS = {
@@ -27,6 +28,10 @@ export default function Sidebar({ conversations, selectedChat, setSelectedChat, 
   const [broadcastName, setBroadcastName] = useState('');
   const [broadcastMembers, setBroadcastMembers] = useState('');
   const [adminStats, setAdminStats] = useState(null);
+  const [showCall, setShowCall] = useState(false);
+  const [callTarget, setCallTarget] = useState(null);
+  const [callType, setCallType] = useState('voice');
+  const [callHistory, setCallHistory] = useState([]);
   const [showNewGroup, setShowNewGroup] = useState(false);
   const [showNewChannel, setShowNewChannel] = useState(false);
   const [showBroadcast, setShowBroadcast] = useState(false);
@@ -85,6 +90,21 @@ export default function Sidebar({ conversations, selectedChat, setSelectedChat, 
 
   const selectConv = (conv) => {
     setSelectedChat({ type: conv.type, id: conv.id, name: conv.name, avatarUrl: conv.avatarUrl });
+  };
+
+  const loadCallHistory = async () => {
+    try {
+      const history = await callsApi.history();
+      setCallHistory(history);
+    } catch (err) {
+      console.error('Call history failed:', err);
+    }
+  };
+
+  const startCall = (user) => {
+    setCallTarget(user);
+    setCallType('voice');
+    setShowCall(true);
   };
 
   const filtered = conversations.filter((c) => {
@@ -221,6 +241,9 @@ export default function Sidebar({ conversations, selectedChat, setSelectedChat, 
                     {conv.unreadCount > 0 && (
                       <span className="unread-badge">{conv.unreadCount > 99 ? '99+' : conv.unreadCount}</span>
                     )}
+                    {conv.type === 'direct' && (
+                      <button className="tiny-btn" onClick={(e) => { e.stopPropagation(); startCall({ id: conv.id, name: conv.name }); }}>📞</button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -325,6 +348,32 @@ export default function Sidebar({ conversations, selectedChat, setSelectedChat, 
           onCreated={() => { loadConversations(); setShowNewChannel(false); }}
         />
       )}
+
+      {showCall && callTarget && (
+        <div className="modal-overlay" onClick={() => setShowCall(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <button className="icon-btn" onClick={() => setShowCall(false)}>✕</button>
+            <CallPage
+              user={user}
+              targetUserId={callTarget.id}
+              targetName={callTarget.name}
+              type={callType}
+              onHangup={() => setShowCall(false)}
+              onDone={() => setShowCall(false)}
+            />
+          </div>
+        </div>
+      )}
+
+      <div className="call-history">
+        <h4>Call history</h4>
+        <button className="small-btn" onClick={loadCallHistory}>Refresh</button>
+        <ul>
+          {callHistory.map((c) => (
+            <li key={c.id}>{new Date(c.startedAt).toLocaleString()} • {c.direction} • {c.type} • {c.durationSeconds}s</li>
+          ))}
+        </ul>
+      </div>
 
       {showProfile && (
         <ProfileModal user={user} onClose={() => setShowProfile(false)} />

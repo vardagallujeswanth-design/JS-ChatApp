@@ -25,6 +25,7 @@ namespace ChatApp.Data
         public DbSet<BroadcastList> BroadcastLists => Set<BroadcastList>();
         public DbSet<BroadcastListMember> BroadcastListMembers => Set<BroadcastListMember>();
         public DbSet<BotApp> BotApps => Set<BotApp>();
+        public DbSet<CallLog> CallLogs => Set<CallLog>();
 
         protected override void OnModelCreating(ModelBuilder m)
         {
@@ -41,6 +42,8 @@ namespace ChatApp.Data
             m.Entity<BotApp>().HasIndex(b => b.ApiKey).IsUnique();
             m.Entity<BroadcastList>().HasIndex(b => new { b.CreatedById, b.Name }).IsUnique();
             m.Entity<BroadcastListMember>().HasIndex(bm => new { bm.BroadcastListId, bm.UserId }).IsUnique();
+            m.Entity<CallLog>().HasIndex(c => c.InitiatorId);
+            m.Entity<CallLog>().HasIndex(c => c.PeerId);
 
             // Message relationships — restrict delete to avoid cycles
             m.Entity<Message>()
