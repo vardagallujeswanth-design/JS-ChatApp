@@ -1,0 +1,28 @@
+# .gitignore for ChatApp
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build
+bin/
+obj/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Node
+**/node_modules/
+**/dist/
+*.log
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
